@@ -3,27 +3,33 @@ import solidPlugin from "vite-plugin-solid";
 import path from "path";
 import stringPlugin from "vite-plugin-string";
 import solidDevtools from "solid-devtools/vite";
+import ViteDts from "vite-plugin-dts";
 
 const isDev = process.env.NODE_ENV === "development";
 
 const devPlugins = isDev ? [solidDevtools()] : [];
 
 export default defineConfig({
-  plugins: [...devPlugins, solidPlugin(), stringPlugin()],
+  plugins: [
+    ViteDts(),
+    ...devPlugins,
+    solidPlugin(),
+    stringPlugin(),
+  ],
   server: {
     port: 3000,
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      '@': '/src',
     },
   },
   build: {
     target: "esnext",
     lib: {
-      entry: path.resolve(__dirname, "src/components/ui/button.tsx"),
+      entry: path.resolve(__dirname, "src/components/ui/button/button.tsx"),
       name: "cn-button",
-      fileName: (format) => `cn-button.${format}.js`,
+      fileName: (format) => `components/cn-button.${format}.js`,
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
@@ -45,5 +51,6 @@ export default defineConfig({
     },
     sourcemap: false,
     outDir: "dist",
+    copyPublicDir: false,
   },
 });

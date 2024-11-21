@@ -1,12 +1,9 @@
-declare global {
-    namespace JSX {
-      interface IntrinsicElements {
-        'cn-button': React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
-          variant?: string;
-          size?: string;
-          label?: string;
-        };
-      }
-    }
+declare namespace JSX {
+  interface IntrinsicElements {
+    "cn-button": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+      variant?: string;
+      size?: string;
+      label?: string;
+    };
   }
-  
+}
