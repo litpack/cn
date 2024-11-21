@@ -6,7 +6,8 @@ const App: Component = () => {
 
   return (
     <>
-      <cn-button variant="default" size="default" label="Default"></cn-button>
+      <cn-button variant="outline" size="lg" label="Submit"></cn-button>
+
     </>
   );
 };
