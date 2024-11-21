@@ -68,12 +68,6 @@ function Button(props: ButtonProps) {
 
 customElement(
   "cn-button",
-  {
-    variant: undefined,
-    size: undefined,
-    disabled: undefined,
-    label: undefined,
-    onClick: undefined,
-  },
+  {},
   Button
 );
