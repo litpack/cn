@@ -24,7 +24,7 @@ export default defineConfig(async () => {
     build: {
       target: 'esnext',
       lib: {
-        entry: path.resolve(__dirname, 'src/components/Button.tsx'),
+        entry: path.resolve(__dirname, 'src/components/ui/button.tsx'),
         name: 'cn-button',
         fileName: (format: any) => `cn-button.${format}.js`,
       },
