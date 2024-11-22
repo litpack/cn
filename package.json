@@ -11,7 +11,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "analyze": "npx vite-bundle-visualizer",
-    "test": "pnpm vitest"
+    "test": "vitest"
   },
   "license": "MIT",
   "devDependencies": {

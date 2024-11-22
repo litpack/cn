@@ -21,7 +21,6 @@ describe("Button Component", () => {
     );
     expect(button).toHaveClass("h-11 rounded-md px-8");
   });
-
   
   it("handles the disabled state correctly", () => {
     render(() => <Button label="Disabled Button" disabled />);
@@ -37,6 +36,66 @@ describe("Button Component", () => {
     fireEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+  
+  it("renders the button with children correctly", () => {
+    render(() => (
+      <Button label="Button with children">
+        <span>Button with children</span>
+      </Button>
+    ));
+    
+    const button = screen.getByText("Button with children");
+    
+    expect(button).toBeInTheDocument();
+  
+    expect(button).toHaveClass("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md");
+  
+    expect(button).toHaveTextContent("Button with children");
+  });
+  
+  
+  it("passes the event to onClick handler", () => {
+    const onClick = vi.fn();
+    render(() => <Button label="Clickable" onClick={onClick} />);
+    const button = screen.getByRole("button", { name: /clickable/i });
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalledWith(expect.any(MouseEvent));
+  });
+  
+  it("matches snapshot with focus-visible styles", async () => {
+    const { asFragment } = render(() => <Button label="Focusable Button" />);
+    const button = screen.getByRole("button", { name: /focusable button/i });
+    await fireEvent.focus(button);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  
+  
+  it("renders correctly with valid variant", () => {
+    render(() => <Button label="Destructive Button" variant="destructive" />);
+    const button = screen.getByRole("button", { name: /destructive button/i });
+    expect(button).toHaveClass("bg-destructive text-destructive-foreground");
+  });
+  
+
+  it("renders correctly without a label", () => {
+    render(() => <Button />);
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent("");
+  });
+  
+  it("matches snapshot for all variants", () => {
+    const { asFragment } = render(() => <Button label="Outline Button" variant="outline" />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+  
+  it("applies hover effects correctly", async () => {
+    render(() => <Button label="Hoverable Button" variant="secondary" />);
+    const button = screen.getByRole("button", { name: /hoverable button/i });
+    await fireEvent.mouseOver(button);
+    expect(button).toHaveClass("hover:bg-secondary/80");
+  });
+  
 
   it("matches the snapshot", () => {
     const { asFragment } = render(() => <Button label="Snapshot Button" />);

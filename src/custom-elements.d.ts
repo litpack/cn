@@ -6,6 +6,7 @@ declare namespace JSX {
       label?: string;
       asChild?: boolean;
       children?: JSXElement;
+      "aria-label"?: string;
     };
   }
 }

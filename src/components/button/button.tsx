@@ -50,6 +50,8 @@ function Button(props: ButtonProps) {
     props
   );
 
+  const buttonContent = mergedProps.label || props.children;
+
   return (
     <>
       <style>{globalCSS}</style>
@@ -63,7 +65,7 @@ function Button(props: ButtonProps) {
           disabled={mergedProps.disabled}
           onClick={mergedProps.onClick}
         >
-          {mergedProps.label}
+          {buttonContent}
         </button>
       )}
     </>
