@@ -1,6 +1,6 @@
 {
   "name": "@litpack/cn",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A component library built with SolidJS.",
   "files": [
     "dist/*"
@@ -12,13 +12,6 @@
     "serve": "vite preview",
     "analyze": "npx vite-bundle-visualizer",
     "test": "pnpm vitest"
-  },
-  "exports": {
-    "./button": {
-      "import": "./dist/button/cn-button.es.js",
-      "require": "./dist/button/cn-button.cjs.js",
-      "types": "./dist/button/index.d.ts"
-    }
   },
   "license": "MIT",
   "devDependencies": {
