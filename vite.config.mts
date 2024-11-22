@@ -11,7 +11,7 @@ const devPlugins = isDev ? [solidDevtools()] : [];
 
 export default defineConfig({
   plugins: [
-    ViteDts(),
+    isDev ? [] : ViteDts(),
     ...devPlugins,
     solidPlugin(),
     stringPlugin(),
@@ -47,6 +47,15 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ["console.log"],
+      },
+      mangle: {
+        properties: {
+          regex: /^_/
+        },
+      },
+      output: {
+        comments: false,
       },
     },
     sourcemap: false,
