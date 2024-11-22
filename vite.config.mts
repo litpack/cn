@@ -15,9 +15,17 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: "./setup-test.ts",
-  }, 
+  },
   plugins: [
-    isDev ? [] : ViteDts(),
+    isDev ? [] : ViteDts({
+      exclude: [
+        '**/*.test.{js,ts,tsx}',
+        '**/*.test.d.ts',
+        '**/*.snap',
+        '**/__tests__/**',
+        '**/*.spec.{js,ts,tsx}',
+      ],
+    }),
     ...devPlugins,
     solidPlugin(),
     stringPlugin(),
@@ -46,6 +54,13 @@ export default defineConfig({
           "class-variance-authority": "CVA",
         },
       },
+      external: [
+        '**/*.test.{js,ts,tsx}',
+        '**/*.test.d.ts',
+        '**/*.snap',
+        '**/__tests__/**',
+        '**/*.spec.{js,ts,tsx}',
+      ],
     },
     minify: "terser",
     terserOptions: {
