@@ -33,7 +33,6 @@ export default defineConfig({
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
-      external: ["solid-js", "solid-js/web", "class-variance-authority"],
       output: {
         globals: {
           "solid-js": "Solid",
