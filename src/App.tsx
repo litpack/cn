@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import "./components/ui/button/button";
+import "./components/button/button";
 
 const App: Component = () => {
 
