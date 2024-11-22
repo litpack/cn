@@ -1,6 +1,6 @@
 import { customElement } from "solid-element";
 import { mergeProps } from "solid-js";
-import globalCSS from "../../../index.css?inline";
+import globalCSS from "../../index.css?inline";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(

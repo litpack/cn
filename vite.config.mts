@@ -27,9 +27,9 @@ export default defineConfig({
   build: {
     target: "esnext",
     lib: {
-      entry: path.resolve(__dirname, "src/components/ui/button/button.tsx"),
+      entry: path.resolve(__dirname, "src/components/button/button.tsx"),
       name: "cn-button",
-      fileName: (format) => `components/cn-button.${format}.js`,
+      fileName: (format) => `button/cn-button.${format}.js`,
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
