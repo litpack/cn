@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client", "./src/custom-elements.d.ts"],
+    "types": ["vite/client","vitest", "./src/custom-elements.d.ts"],
     "declaration": true,
     "declarationDir": "./dist/types",
     "noEmit": false, 

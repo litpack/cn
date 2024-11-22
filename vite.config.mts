@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import path from "path";
@@ -10,6 +11,11 @@ const isDev = process.env.NODE_ENV === "development";
 const devPlugins = isDev ? [solidDevtools()] : [];
 
 export default defineConfig({
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./setup-test.ts",
+  }, 
   plugins: [
     isDev ? [] : ViteDts(),
     ...devPlugins,
