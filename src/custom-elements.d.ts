@@ -4,6 +4,8 @@ declare namespace JSX {
       variant?: string;
       size?: string;
       label?: string;
+      asChild?: boolean;
+      children?: JSXElement;
     };
   }
 }
