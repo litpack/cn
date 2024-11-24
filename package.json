@@ -1,9 +1,9 @@
 {
   "name": "@litpack/cn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A component library built with SolidJS.",
   "files": [
-    "dist/*"
+    "dist/**/*"
   ],
   "scripts": {
     "start": "vite",
